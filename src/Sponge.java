@@ -33,7 +33,22 @@ public class Sponge {
 
   // Implement your solution here!
   public static String spongeCase(String sentence) {
-    return null;
+    String result = "";
+    int counter = 0;
+
+    for(char current : sentence.toCharArray()){
+      if(current == ' '){ //adds a space and resets counter
+        result += ' ';
+        counter=0;
+      }else if(counter%2==0){ //lowercases every char with even "index"
+        result += Character.toLowerCase(current);
+        counter++;
+      }else{ //uppercases every char with odd "index"
+        result += Character.toUpperCase(current);
+        counter++;
+      }
+    }
+    return result;
   }
 
 
