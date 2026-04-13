@@ -26,7 +26,29 @@ public class Pig {
 
     // Implement your solution here!
     public static String pigLatin(String sentence) {
-        return null;
+        String[] words = sentence.split(" "); 
+        String result = "";
+        
+        for(String word:words){
+            result+=singleWord(word);
+            result+=" ";
+        }
+
+        result = result.substring(0, result.length() - 1);
+
+        return result;
+    }
+
+    //Helper method
+    //word starts with vowel, word is unchanged
+    public static String singleWord(String word){
+        if (word.charAt(0) == 'a' || word.charAt(0) == 'e' || word.charAt(0) == 'i' || word.charAt(0) == 'o' || word.charAt(0) == 'u') {
+            return word; // Return the word unchanged if it starts with a vowel
+        }
+        char firstLetter = word.charAt(0);
+        word = word.substring(1);
+        word = word + firstLetter;
+        return word + "ay";
     }
 
 
